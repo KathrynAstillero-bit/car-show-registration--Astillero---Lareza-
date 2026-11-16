@@ -1,16 +1,21 @@
-# React + Vite
+# AutoVista frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React dashboard layout with 25 local sample registrations. All displayed records are fictional sample data, not live registrations.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+From frontend/: npm install, then npm run dev.
 
-## React Compiler
+## Connect the real API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Create frontend/.env.development with VITE_API_BASE_URL set to your partner's actual API URL (example: http://localhost:5205).
+2. In src/pages/RegistrationsPage.jsx change the import from ../api/sample-data to ../api/registrationsApi.
+3. Restart the Vite server after changing environment settings.
+4. Replace the visible Sample data and Local sample preview labels when connecting the real API.
 
-## Expanding the ESLint configuration
+Both API modules export getRegistrations({ participantName, type, status, page, pageSize }) and getSummary(). The response keys and enum values follow the assignment. Summary cards use getSummary(), independently of the current table page.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The page owns filters, pagination, data, loading and error state. Components use the assignment names. Styling uses Bootstrap utilities with custom dashboard CSS.
+
+This layout has not been committed or pushed automatically. Review and understand each part before submitting it as your own work.
+
