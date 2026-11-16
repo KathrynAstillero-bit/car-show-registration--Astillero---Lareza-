@@ -1,0 +1,127 @@
+/* Readable type scale and spacing for the registration dashboard. */
+body { font-size: 16px; line-height: 1.55; }
+.brand { font-size: 20px; }
+.brand small { font-size: 9px; line-height: 1.5; letter-spacing: 1.5px; }
+.workspace-label { font-size: 11px; letter-spacing: 1.4px; margin-top: 36px; }
+.nav-item { font-size: 14px; line-height: 1.5; padding: 15px 12px; }
+.nav-item > svg { flex-shrink: 0; }
+.nav-indicator { flex-shrink: 0; }
+.sidebar-event .eyebrow { font-size: 10px; letter-spacing: 1px; }
+.event-year { font-size: 27px; }
+.event-year span { font-size: 48px; }
+.sidebar-event p { font-size: 13px; line-height: 1.6; }
+.event-tag { font-size: 12px; line-height: 1.6; display: block; }
+.sidebar-bottom strong { font-size: 14px; }
+.sidebar-bottom small { font-size: 12px; }
+.avatar, .avatar.light { font-size: 13px; width: 39px; height: 39px; flex-shrink: 0; }
+.topbar { min-height: 76px; height: auto; padding-block: 17px; gap: 16px; }
+.breadcrumb { font-size: 14px; line-height: 1.5; }
+.demo-label { font-size: 12px; }
+.eyebrow.orange-text { font-size: 12px; letter-spacing: 1.6px; }
+h1 { font-size: clamp(30px, 2.4vw, 40px); line-height: 1.2; letter-spacing: -1px; margin-block: 12px; }
+.page-heading { margin-bottom: 30px; }
+.page-heading p { font-size: 15px; line-height: 1.7; max-width: 650px; }
+.event-pill { font-size: 13px; }
+.kpi-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.kpi-card { padding: 23px 19px; min-height: 165px; display: flex; flex-direction: column; }
+.kpi-top { font-size: 14px; line-height: 1.45; gap: 10px; align-items: flex-start; min-height: 42px; }
+.kpi-top > span:first-child { max-width: 150px; }
+.kpi-icon { width: 36px; height: 36px; }
+.kpi-icon svg { width: 20px; height: 20px; }
+.kpi-value { font-size: clamp(25px, 2vw, 32px); line-height: 1.2; letter-spacing: -.6px; margin-top: 15px; }
+.kpi-card p { font-size: 13px; line-height: 1.55; margin-top: 13px; }
+.panel-heading { padding: 27px 25px; }
+h2 { font-size: 23px; line-height: 1.3; }
+.count-chip { font-size: 12px; padding: 5px 10px; }
+.panel-heading p { font-size: 14px; line-height: 1.6; margin-top: 8px; }
+.panel-note { font-size: 12px; }
+.filters { gap: 17px; padding-inline: 25px; padding-bottom: 26px; }
+.filters label { font-size: 14px; line-height: 1.5; gap: 9px; }
+.filters input, .filters select { font-size: 14px; height: 48px; padding-inline: 13px; }
+.filters .search-wrap input { padding-left: 40px; }
+.search-wrap svg { top: 15px; left: 13px; width: 19px; height: 19px; }
+.clear-button { height: 48px; font-size: 14px; padding-inline: 18px; }
+table { min-width: 1160px; }
+th { font-size: 11px; letter-spacing: .65px; line-height: 1.5; padding: 17px 18px; }
+td { font-size: 14px; line-height: 1.45; padding: 22px 18px; }
+td strong { font-size: 14px; font-weight: 600; }
+td small { font-size: 12px; line-height: 1.5; margin-top: 6px; }
+.participant { gap: 12px; }
+.person-avatar { width: 39px; height: 39px; font-size: 12px; }
+.plate { font-size: 12px; letter-spacing: .7px; }
+.type-label { font-size: 13px; }
+.badge { font-size: 12px; line-height: 1.4; padding: 7px 10px; gap: 6px; }
+.dot { width: 5px; height: 5px; }
+.pagination { padding: 24px 25px; gap: 20px; flex-wrap: wrap; }
+.results-count { font-size: 14px; line-height: 1.6; }
+.pagination-controls { gap: 22px; flex-wrap: wrap; }
+.page-size { font-size: 13px; gap: 10px; }
+.page-size select { font-size: 14px; padding: 8px 10px; min-height: 39px; }
+.pagination nav { gap: 7px; }
+.pagination nav button { min-width: 39px; height: 39px; font-size: 14px; }
+footer { font-size: 12px; line-height: 1.7; padding-block: 24px; }
+.feedback { font-size: 14px; line-height: 1.7; }
+.feedback button, .empty-state button { font-size: 14px; min-height: 42px; }
+.empty-state h3 { font-size: 20px; }
+.empty-state p { font-size: 14px; }
+@media (max-width: 1450px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .kpi-card { min-height: 165px; }
+  .kpi-value { font-size: 30px; }
+  .filters { flex-wrap: wrap; }
+  .filters .search-filter { flex: 1 1 100%; }
+  .filters label { flex: 1 1 25%; }
+  .panel-note { display: none; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .sidebar { width: 207px; }
+  .main-shell { margin-left: 214px; }
+  .brand { font-size: 16px; gap: 8px; }
+  .brand small { font-size: 8px; letter-spacing: 1px; }
+  .brand-mark { width: 33px; height: 36px; flex-shrink: 0; }
+  .nav-item { padding-inline: 9px; font-size: 13px; }
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-card:last-child { grid-column: span 2; }
+  .topbar { padding-inline: 15px; }
+  .breadcrumb { font-size: 12px; }
+  .breadcrumb span { padding-inline: 8px; }
+  .topbar-right { gap: 9px; }
+  .avatar.light { display: none; }
+}
+@media (max-width: 700px) {
+  .brand { font-size: 20px; }
+  .brand small { font-size: 9px; }
+  main { padding-inline: 15px; }
+  .topbar { padding: 13px; min-height: 64px; gap: 8px; flex-wrap: wrap; }
+  .breadcrumb { font-size: 12px; }
+  .demo-label { font-size: 11px; }
+  .eyebrow.orange-text { font-size: 10px; letter-spacing: 1.1px; }
+  h1 { font-size: 30px; line-height: 1.2; }
+  .page-heading p { font-size: 14px; }
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .kpi-card { padding: 18px 13px; min-height: 164px; }
+  .kpi-top { font-size: 13px; gap: 7px; min-height: 40px; }
+  .kpi-icon { width: 28px; height: 28px; border-radius: 9px; }
+  .kpi-icon svg { width: 17px; height: 17px; }
+  .kpi-value { font-size: clamp(21px, 5.4vw, 29px); letter-spacing: -.7px; }
+  .kpi-card p { font-size: 12px; }
+  .kpi-card:last-child { grid-column: span 2; }
+  .panel-heading { padding: 22px 17px; }
+  h2 { font-size: 21px; }
+  .panel-heading p { font-size: 13px; }
+  .filters { padding-inline: 17px; gap: 14px; }
+  .filters label { flex-basis: 100%; }
+  .filters .search-filter { flex-basis: 100%; }
+  .clear-button { width: 100%; }
+  .pagination { padding: 21px 16px; }
+  .pagination-controls { gap: 17px; width: 100%; }
+  .pagination nav { flex-wrap: wrap; gap: 6px; }
+  .pagination nav button { min-width: 35px; height: 38px; font-size: 14px; }
+  .results-count { font-size: 13px; }
+  footer { font-size: 11px; gap: 8px; }
+}
+@media (max-height: 780px) and (min-width: 701px) {
+  .sidebar { overflow-y: auto; }
+  .sidebar-event { margin-top: 27px; margin-bottom: 27px; }
+  .sidebar-bottom { padding-top: 18px; }
+}
