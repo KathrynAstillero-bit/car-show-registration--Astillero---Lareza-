@@ -5,7 +5,9 @@ import './soft-theme.css'
 import './motorsport-theme.css'
 import './typography.css'
 import './interactions.css'
+import './background-quality.css'
 export default function App() { return <RegistrationsPage/> }
+
 
 
 
