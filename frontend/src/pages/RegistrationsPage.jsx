@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { getRegistrations, getSummary } from '../api/sample-data'
 import useDebounce from '../hooks/useDebounce'
 import { money } from '../formatters'
-import Icon from '../components/Icon'
+import Sidebar from '../components/Sidebar'
 import KpiCards from '../components/KpiCards'
 import RegistrationFilters from '../components/RegistrationFilters'
 import RegistrationTable from '../components/RegistrationTable'
 import Pagination from '../components/Pagination'
 function RegistrationsPage() {
+  const [sidebarExpanded, setSidebarExpanded] = useState(false)
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
   const [status, setStatus] = useState('')
@@ -34,14 +35,8 @@ function RegistrationsPage() {
   function changePage(value) { setLoading(true); setPage(value) }
   function reset() { setLoading(true); setSearch(''); setType(''); setStatus(''); setPage(1); setRetry(v => v + 1) }
   const kpis = summary ? [['Total registrations', summary.totalRegistrations, 'people', 'All event participants', 'orange'], ['Total payments', money(summary.totalPayments), 'wallet', 'Collected so far', 'green'], ['Uncollected payments', money(summary.uncollectedPayments), 'clock', 'Remaining balance', 'amber'], ['Confirmed', summary.confirmed, 'check', 'Ready for the show', 'blue'], ['Checked in', summary.checkedIn, 'entry', 'Arrived at the venue', 'purple']] : []
-  return <div className="app-shell">
-    <aside className="sidebar">
-      <a className="brand" href="#dashboard"><span className="brand-mark"><Icon name="car" size={27}/></span><span>AUTO<span className="brand-accent">VISTA</span><small>EVENT MANAGEMENT</small></span></a>
-      <div className="workspace-label">WORKSPACE</div>
-      <a href="#dashboard" className="nav-item active" aria-current="page"><Icon name="grid"/> Registration dashboard <span className="nav-indicator"/></a>
-      <div className="sidebar-event"><span className="eyebrow">THE NEXT BIG SHOW</span><div className="event-year">CAR SHOW<span>2027</span></div><div className="event-rule"/><p>Sorsogon City Coliseum</p><span className="event-tag">3 days. One shared passion.</span></div>
-      <div className="sidebar-bottom"><span className="avatar">AV</span><div><strong>Event staff</strong><small>AutoVista Events</small></div><span className="online-dot"/></div>
-    </aside>
+  return <div className={`app-shell ${sidebarExpanded ? 'sidebar-is-expanded' : 'sidebar-is-compact'}`}>
+    <Sidebar expanded={sidebarExpanded} onToggle={() => setSidebarExpanded(value => !value)}/>
     <div className="main-shell" id="dashboard">
       <header className="topbar"><div className="breadcrumb">Workspace <span>/</span> <strong>Registration dashboard</strong></div><div className="topbar-right"><span className="demo-label">Sample data</span><span className="avatar light">AV</span></div></header>
       <main>
@@ -61,4 +56,5 @@ function RegistrationsPage() {
   </div>
 }
 export default RegistrationsPage
+
 
