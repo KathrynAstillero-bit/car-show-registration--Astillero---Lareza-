@@ -7,7 +7,7 @@ A car-show registration dashboard built with React, with a C# backend planned fo
 | Team member | Role |
 | --- | --- |
 | Kathryn Astillero | Frontend: React dashboard, components, and styling |
-| Backend teammate | Backend: C# API, database, and registration endpoints |
+| Angelica Lareza | Backend: C# API, database, and registration endpoints |
 
 ## Repository structure
 
