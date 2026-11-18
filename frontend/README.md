@@ -19,3 +19,11 @@ The page owns filters, pagination, data, loading and error state. Components use
 
 This layout has not been committed or pushed automatically. Review and understand each part before submitting it as your own work.
 
+
+
+## Source organization
+
+The components directory follows the suggested files in Section B of the assignment: KpiCard, KpiCards, RegistrationFilters, RegistrationTable, Pagination, StatusBadge, and PaymentBadge (seven files total).
+App.jsx owns the application shell and sidebar toggle. RegistrationsPage.jsx owns filters, pagination, data fetching, loading and error state. Decorative icons stay inside their owning components; currency formatting stays with its displayed values. All dashboard styling is consolidated in src/index.css.
+
+The API modules and useDebounce hook retain the suggested names and JSON contract.

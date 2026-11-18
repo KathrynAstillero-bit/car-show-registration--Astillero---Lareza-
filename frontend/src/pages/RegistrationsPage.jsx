@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import { getRegistrations, getSummary } from '../api/sample-data'
 import useDebounce from '../hooks/useDebounce'
-import { money } from '../formatters'
-import Sidebar from '../components/Sidebar'
 import KpiCards from '../components/KpiCards'
 import RegistrationFilters from '../components/RegistrationFilters'
 import RegistrationTable from '../components/RegistrationTable'
 import Pagination from '../components/Pagination'
+const money = value => new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP', maximumFractionDigits: 2 }).format(value)
+
 function RegistrationsPage() {
-  const [sidebarExpanded, setSidebarExpanded] = useState(false)
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
   const [status, setStatus] = useState('')
@@ -35,12 +34,8 @@ function RegistrationsPage() {
   function changePage(value) { setLoading(true); setPage(value) }
   function reset() { setLoading(true); setSearch(''); setType(''); setStatus(''); setPage(1); setRetry(v => v + 1) }
   const kpis = summary ? [['Total registrations', summary.totalRegistrations, 'people', 'All event participants', 'orange'], ['Total payments', money(summary.totalPayments), 'wallet', 'Collected so far', 'green'], ['Uncollected payments', money(summary.uncollectedPayments), 'clock', 'Remaining balance', 'amber'], ['Confirmed', summary.confirmed, 'check', 'Ready for the show', 'blue'], ['Checked in', summary.checkedIn, 'entry', 'Arrived at the venue', 'purple']] : []
-  return <div className={`app-shell ${sidebarExpanded ? 'sidebar-is-expanded' : 'sidebar-is-compact'}`}>
-    <Sidebar expanded={sidebarExpanded} onToggle={() => setSidebarExpanded(value => !value)}/>
-    <div className="main-shell" id="dashboard">
-      <header className="topbar"><div className="breadcrumb">Workspace <span>/</span> <strong>Registration dashboard</strong></div><div className="topbar-right"><span className="demo-label">Sample data</span><span className="avatar light">AV</span></div></header>
-      <main>
-        <div className="page-heading"><div><div className="eyebrow orange-text">AUTOVISTA EVENTS / CAR SHOW 2027</div><h1>Registration dashboard<span>.</span></h1><p>A clear view of every car, every participant, and every payment.</p></div><div className="event-pill"><span className="online-dot"/> Event overview</div></div>
+  return <main>
+        <div className="page-heading"><div><div className="eyebrow orange-text">AUTOVISTA EVENTS / CAR SHOW 2027</div><h1>REGISTRATION DASHBOARD</h1><p>A clear view of every car, every participant, and every payment.</p></div><div className="event-pill"><span className="online-dot"/> Event overview</div></div>
         <KpiCards cards={kpis}/>
         <section className="registrations-panel" aria-labelledby="registrations-heading">
           <div className="panel-heading"><div><div className="title-row d-flex align-items-center"><h2 id="registrations-heading">Registrations</h2><span className="count-chip">{summary?.totalRegistrations ?? 0} total</span></div><p>Your event lineup, all in one place.</p></div><span className="panel-note"><span className="online-dot"/> Local sample preview</span></div>
@@ -51,10 +46,11 @@ function RegistrationsPage() {
           <Pagination {...{ totalCount, page, pages, pageSize, setPageSize, changeFilter, changePage, loading }}/>
         </section>
         <footer><span>AutoVista Events <span className="footer-dot">·</span> Car Show 2027</span><span>Built for a smoother show day.</span></footer>
-      </main>
-    </div>
-  </div>
+  </main>
 }
 export default RegistrationsPage
+
+
+
 
 
