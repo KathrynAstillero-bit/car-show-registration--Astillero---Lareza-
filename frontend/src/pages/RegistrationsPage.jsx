@@ -40,9 +40,9 @@ function RegistrationsPage() {
         <section className="registrations-panel" aria-labelledby="registrations-heading">
           <div className="panel-heading"><div><div className="title-row d-flex align-items-center"><h2 id="registrations-heading">Registrations</h2><span className="count-chip">{summary?.totalRegistrations ?? 0} total</span></div><p>Your event lineup, all in one place.</p></div><span className="panel-note"><span className="online-dot"/> Local sample preview</span></div>
           <RegistrationFilters {...{ search, type, status, setSearch, setType, setStatus, changeFilter, reset }}/>
-          {loading && <div className="feedback" role="status">Loading registrations…</div>}
+          {loading && <div className="sr-only" role="status">Loading registrations…</div>}
           {error && <div className="feedback error" role="alert">{error} <button onClick={() => {setLoading(true); setRetry(v => v + 1)}}>Try again</button></div>}
-          <RegistrationTable {...{ rows, reset, loading, error }}/>
+          <RegistrationTable {...{ rows, reset, loading, error, pageSize }}/>
           <Pagination {...{ totalCount, page, pages, pageSize, setPageSize, changeFilter, changePage, loading }}/>
         </section>
         <footer><span>AutoVista Events <span className="footer-dot">·</span> Car Show 2027</span><span>Built for a smoother show day.</span></footer>
