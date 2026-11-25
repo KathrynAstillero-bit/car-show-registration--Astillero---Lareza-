@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getRegistrations, getSummary } from '../api/sample-data'
+import { getRegistrations, getSummary } from '../api/registrationsApi'
 import useDebounce from '../hooks/useDebounce'
 import KpiCards from '../components/KpiCards'
 import RegistrationFilters from '../components/RegistrationFilters'
@@ -38,7 +38,7 @@ function RegistrationsPage() {
         <div className="page-heading"><div><div className="eyebrow orange-text">AUTOVISTA EVENTS / CAR SHOW 2027</div><h1>REGISTRATION DASHBOARD</h1><p>A clear view of every car, every participant, and every payment.</p></div><div className="event-pill"><span className="online-dot"/> Event overview</div></div>
         <KpiCards cards={kpis}/>
         <section className="registrations-panel" aria-labelledby="registrations-heading">
-          <div className="panel-heading"><div><div className="title-row d-flex align-items-center"><h2 id="registrations-heading">Registrations</h2><span className="count-chip">{summary?.totalRegistrations ?? 0} total</span></div><p>Your event lineup, all in one place.</p></div><span className="panel-note"><span className="online-dot"/> Local sample preview</span></div>
+          <div className="panel-heading"><div><div className="title-row d-flex align-items-center"><h2 id="registrations-heading">Registrations</h2><span className="count-chip">{summary?.totalRegistrations ?? 0} total</span></div><p>Your event lineup, all in one place.</p></div><span className="panel-note"><span className="online-dot"/> Live API data</span></div>
           <RegistrationFilters {...{ search, type, status, setSearch, setType, setStatus, changeFilter, reset }}/>
           {loading && <div className="sr-only" role="status">Loading registrations…</div>}
           {error && <div className="feedback error" role="alert">{error} <button onClick={() => {setLoading(true); setRetry(v => v + 1)}}>Try again</button></div>}
